@@ -25,3 +25,12 @@ export async function GET(_req: NextRequest, { params }: { params: { id: string 
 
   return NextResponse.json({ kanji, cards: { reading: card_reading, meaning: card_meaning }, sentences });
 }
+
+export async function DELETE(_req: NextRequest, { params }: { params: { id: string } }) {
+  const db = getDB();
+  const id = parseInt(params.id);
+  const kanji = db.prepare('SELECT id FROM kanji WHERE id = ?').get(id);
+  if (!kanji) return NextResponse.json({ error: 'not found' }, { status: 404 });
+  db.prepare('DELETE FROM kanji WHERE id = ?').run(id);
+  return NextResponse.json({ success: true });
+}
