@@ -40,11 +40,11 @@ export default function SentenceInput({ onAdded }: Props) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow p-6">
-      <h2 className="text-lg font-semibold mb-4">Add Sentence</h2>
+    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
+      <h2 className="text-lg font-semibold mb-4 text-zinc-100">Add Sentence</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         <textarea
-          className="w-full border border-gray-200 rounded-lg p-3 text-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg p-3 text-lg text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
           rows={3}
           placeholder="日本語の文章を入力してください..."
           value={text}
@@ -53,7 +53,7 @@ export default function SentenceInput({ onAdded }: Props) {
         />
         <input
           type="text"
-          className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          className="w-full bg-zinc-800 border border-zinc-700 rounded-lg p-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-violet-500"
           placeholder="Source tag (e.g. book, anime) — optional"
           value={sourceTag}
           onChange={e => setSourceTag(e.target.value)}
@@ -62,17 +62,17 @@ export default function SentenceInput({ onAdded }: Props) {
         <button
           type="submit"
           disabled={loading || !text.trim()}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-300 text-white font-medium py-2 rounded-lg transition"
+          className="w-full bg-violet-700 hover:bg-violet-600 disabled:bg-zinc-700 disabled:text-zinc-500 text-white font-medium py-2 rounded-lg transition"
         >
           {loading ? 'Analyzing...' : 'Add Sentence'}
         </button>
       </form>
       {result && (
-        <p className="mt-3 text-sm text-green-600">
+        <p className="mt-3 text-sm text-violet-400">
           Added! Extracted {result.vocab_count} vocab tokens and {result.kanji_count} kanji.
         </p>
       )}
-      {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+      {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
     </div>
   );
 }

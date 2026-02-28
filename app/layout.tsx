@@ -10,8 +10,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Japanese SRS",
-  description: "Spaced repetition system for Japanese vocabulary and kanji",
+  title: "Karasu",
+  description: "Spaced repetition for Japanese vocabulary and kanji",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${notoSansJP.variable} font-sans antialiased bg-gray-50 text-gray-900`}>
+      <body className={`${notoSansJP.variable} font-sans antialiased bg-zinc-950 text-zinc-100`}>
         <NavBar />
         <main>{children}</main>
       </body>

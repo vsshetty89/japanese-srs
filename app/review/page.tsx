@@ -48,7 +48,7 @@ export default function ReviewPage() {
 
   if (loading) {
     return (
-      <div className="max-w-xl mx-auto py-16 px-4 text-center text-gray-400">
+      <div className="max-w-xl mx-auto py-16 px-4 text-center text-zinc-500">
         Loading review session...
       </div>
     );
@@ -59,8 +59,8 @@ export default function ReviewPage() {
   return (
     <div className="max-w-xl mx-auto py-8 px-4">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl font-bold">Review</h1>
-        <Link href="/" className="text-sm text-indigo-600 hover:underline">← Home</Link>
+        <h1 className="text-2xl font-bold text-zinc-100">Review</h1>
+        <Link href="/" className="text-sm text-violet-400 hover:underline">← Home</Link>
       </div>
 
       <ReviewProgress done={done} total={done + cards.length} />
@@ -72,21 +72,21 @@ export default function ReviewPage() {
           onSubmit={submitting ? () => {} : handleSubmit}
         />
       ) : (
-        <div className="bg-white rounded-2xl shadow-md p-8 text-center">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
           {done > 0 ? (
             <>
-              <div className="text-4xl mb-4">🎉</div>
-              <h2 className="text-xl font-semibold mb-2">Session Complete!</h2>
-              <p className="text-gray-500">You reviewed {done} card{done !== 1 ? 's' : ''}.</p>
+              <div className="text-4xl mb-4">烏</div>
+              <h2 className="text-xl font-semibold mb-2 text-zinc-100">Session Complete!</h2>
+              <p className="text-zinc-400">You reviewed {done} card{done !== 1 ? 's' : ''}.</p>
             </>
           ) : (
             <>
-              <div className="text-4xl mb-4">✓</div>
-              <h2 className="text-xl font-semibold mb-2">All Caught Up!</h2>
-              <p className="text-gray-500">No cards due right now.</p>
+              <div className="text-4xl mb-4">烏</div>
+              <h2 className="text-xl font-semibold mb-2 text-zinc-100">All Caught Up!</h2>
+              <p className="text-zinc-400">No cards due right now.</p>
             </>
           )}
-          <Link href="/log" className="mt-6 inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
+          <Link href="/log" className="mt-6 inline-block bg-violet-700 hover:bg-violet-600 text-white px-6 py-2 rounded-lg transition">
             Add More Sentences
           </Link>
         </div>

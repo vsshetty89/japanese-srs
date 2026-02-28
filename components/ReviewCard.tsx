@@ -33,22 +33,22 @@ export default function ReviewCard({ card, onSubmit }: Props) {
       : (jisho?.senses?.[0]?.english_definitions?.join(', ') ?? card.basic_form);
 
   return (
-    <div className="bg-white rounded-2xl shadow-md p-8 text-center">
-      <div className="text-xs uppercase tracking-widest text-gray-400 mb-2">
+    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+      <div className="text-xs uppercase tracking-widest text-zinc-500 mb-2">
         {card.item_type} · {card.card_type}
       </div>
-      <div className="text-6xl mb-6 py-4">{card.display}</div>
+      <div className="text-6xl mb-6 py-4 text-zinc-100">{card.display}</div>
 
       {!revealed ? (
         <button
           onClick={() => setRevealed(true)}
-          className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-xl font-medium transition"
+          className="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-8 py-3 rounded-xl font-medium transition"
         >
           Show Answer
         </button>
       ) : (
         <div>
-          <div className="text-2xl text-indigo-700 font-semibold mb-6">{answer}</div>
+          <div className="text-2xl text-violet-400 font-semibold mb-6">{answer}</div>
           <QualityButtons onSelect={q => onSubmit(card.id, q)} />
         </div>
       )}
@@ -58,12 +58,12 @@ export default function ReviewCard({ card, onSubmit }: Props) {
 
 function QualityButtons({ onSelect }: { onSelect: (q: number) => void }) {
   const buttons = [
-    { q: 0, label: 'Blackout', color: 'bg-red-500 hover:bg-red-600' },
-    { q: 1, label: 'Wrong', color: 'bg-orange-400 hover:bg-orange-500' },
-    { q: 2, label: 'Hard', color: 'bg-yellow-400 hover:bg-yellow-500' },
-    { q: 3, label: 'Good', color: 'bg-green-400 hover:bg-green-500' },
-    { q: 4, label: 'Easy', color: 'bg-blue-400 hover:bg-blue-500' },
-    { q: 5, label: 'Perfect', color: 'bg-indigo-500 hover:bg-indigo-600' },
+    { q: 0, label: 'Blackout', color: 'bg-red-700 hover:bg-red-600' },
+    { q: 1, label: 'Wrong', color: 'bg-orange-700 hover:bg-orange-600' },
+    { q: 2, label: 'Hard', color: 'bg-yellow-700 hover:bg-yellow-600' },
+    { q: 3, label: 'Good', color: 'bg-emerald-700 hover:bg-emerald-600' },
+    { q: 4, label: 'Easy', color: 'bg-sky-700 hover:bg-sky-600' },
+    { q: 5, label: 'Perfect', color: 'bg-violet-700 hover:bg-violet-600' },
   ];
 
   return (
